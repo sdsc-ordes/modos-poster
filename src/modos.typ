@@ -1,6 +1,6 @@
 // Import a theme
-#import "@preview/postercise:0.1.0"
-#import postercise.themes.better: *
+#import "@preview/postercise:0.1.0": *
+#import themes.better: *
 
 // Set up paper dimensions and text
 #set page(width: 24in, height: 18in)
