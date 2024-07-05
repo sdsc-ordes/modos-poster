@@ -1,6 +1,6 @@
 // Import a theme
-#import "./themes/postercise.typ": *
-#import themes.better: *
+#import "@preview/postercise:0.1.0"
+#import postercise.themes.better: *
 
 // Set up paper dimensions and text
 #set page(width: 24in, height: 18in)
@@ -17,7 +17,7 @@
     title: [Title of Research Project:],
     subtitle: [Subtitle],
     authors: [List of Authors],
-    logo-1: image("placeholder.png")
+    logo-1: image("../assets/images/placeholder.png")
     )
 
   // Include content in the footer
@@ -32,7 +32,7 @@
     + #lorem(8)
     + #lorem(12)
 
-    #figure(image("emu-logo.png", width: 60%))
+    #figure(image("../assets/images/logo-sdsc.jpg", width: 60%))
     ]
 
   = Research Question
@@ -49,7 +49,7 @@
     = Results
     #lorem(10)
     
-    #figure(image("placeholder.png", width: 50%),
+    #figure(image("../assets/images/placeholder.png", width: 50%),
     caption: [_Fig. 1: Sample Results_])
     ]
 
