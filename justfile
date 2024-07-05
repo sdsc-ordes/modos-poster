@@ -29,13 +29,13 @@ develop:
 docker-run:
   docker run \
     -it \
-    --mount type=bind,sources="$(pwd)",target=/build \
-    "https://ghcr.io/sdsc-ordes/modos-poster:dev"
+    -w "/work" \
+    --mount type=bind,source="$(pwd)",target=/work \
+    "ghcr.io/sdsc-ordes/modos-poster:dev"
 
 
 ## Maintenance
 
-docker-build:
-  nix-build ./tools/nix/image.nix \
-  && ./build/image \
-  | docker load
+build-image:
+  nix build -L "./tools/nix#image" --out-link "build/image" \
+  && docker load < "build/image"
