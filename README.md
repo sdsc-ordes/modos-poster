@@ -3,27 +3,21 @@ Poster presentation of modos (multi-omics digital object system).
 
 ## Setup
 
-A nix shell with all dependencies is provided. It can be used in two ways:
+>[!NOTE]
+> You will need `just` to run the instructions below ([installation](https://github.com/casey/just?tab=readme-ov-file#packages)), and and [nix](https://nixos.org/) or [docker](https://www.docker.com/) to use the provided development shell.
 
-If nix is available on the machine:
+A nix shell with all dependencies is provided for reproducibility. It can be used in two ways:
+
+With nix:
 
 ```shell
-nix shell ./tools/nix/shell.nix
-
-# or if just is installed:
-# just develop
+just develop
 ```
 
-Or through docker:
+Or with docker:
 
 ```shell
-docker run \
-  -it \
-  --mount type=bind,sources="$(pwd)",target=/build \
-  "https://ghcr.io/sdsc-ordes/modos-poster:dev"
-
-# or if just is installed:
-# just docker-run
+just docker-run
 ```
 
 ## Usage
