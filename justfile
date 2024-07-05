@@ -30,7 +30,7 @@ nix-develop:
 # dockerized development shell (alternative to nix)
 docker-develop:
   docker run \
-    --user 1001:1001 \
+    --user 1000:1000 \
     -it \
     -w "/build/work" \
     --mount type=bind,source="$(pwd)",target=/build/work \

@@ -22,9 +22,6 @@
           tag = "dev";
           drv = pkgs.mkShell {
             inherit nativeBuildInputs;
-          run = ''
-            chmod -R 777 /build
-           '';
           };
         };
       };
