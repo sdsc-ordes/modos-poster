@@ -7,11 +7,13 @@ pdf := "./build/modos.pdf"
 
 ## Generate poster
 
+# build poster
 build *args:
   typst compile \
     --root "{{root}}" \
     "{{src}}" "{{pdf}}" {{args}}
 
+# continuously rebuild poster on file changes
 watch *args:
   typst watch \
     --open \
@@ -36,6 +38,7 @@ docker-run:
 
 ## Maintenance
 
+# builds oci image with nix and load into docker
 build-image:
   nix build -L "./tools/nix#image" --out-link "build/image" \
   && docker load < "build/image"
