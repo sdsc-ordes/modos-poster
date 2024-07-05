@@ -8,13 +8,13 @@ pdf := "./build/modos.pdf"
 ## Generate poster
 
 # build poster
-build *args:
+build-poster *args:
   typst compile \
     --root "{{root}}" \
     "{{src}}" "{{pdf}}" {{args}}
 
 # continuously rebuild poster on file changes
-watch *args:
+watch-poster *args:
   typst watch \
     --open \
     --root "{{root}}" \
@@ -24,11 +24,11 @@ watch *args:
 ## Development environment
 
 # nix development shell
-nix-develop:
+develop-nix:
   nix develop ./tools/nix
 
 # dockerized development shell (alternative to nix)
-docker-develop:
+develop-docker:
   chmod -R 777 ./build
   docker run \
     --user 1000:1000 \
@@ -41,6 +41,6 @@ docker-develop:
 ## Maintenance
 
 # builds oci image with nix and load into docker
-build-image:
+build-docker:
   nix build -L "./tools/nix#image" --out-link "build/image" \
   && docker load < "build/image"
