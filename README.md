@@ -11,18 +11,19 @@ A nix shell with all dependencies is provided for reproducibility. It can be use
 With nix:
 
 ```shell
-just develop
+just develop-nix
 ```
 
 Or with docker:
 
 ```shell
-just docker-run
+just develop-docker
 ```
 
 ## Usage
 
 The presentation uses [typst](https://typst.app) with the [postercise](https://typst.app/universe/package/postercise/) package.
 
-To compile the poster PDF, run `just build`.
+To compile the poster PDF, run `just build-poster`.
+You may also `just watch-poster` to continuously rebuild the poster on source changes.
 
