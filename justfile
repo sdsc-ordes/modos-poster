@@ -1,10 +1,16 @@
 set positional-arguments
 set shell := ["bash", "-cue"]
-root_dir := justfile_directory()
+root := justfile_directory()
+src := "./src/modos.typ"
+pdf := "./build/modos.pdf"
 
 build *args:
   typst compile \
-    --root "{{root_dir}}" \
-    ./src/modos.typ \
-    ./build/modos.pdf \
-    {{args}}
+    --root "{{root}}" \
+    "{{src}}" "{{pdf}}" {{args}}
+
+watch *args:
+  typst watch \
+    --open \
+    --root "{{root}}" \
+    "{{src}}" "{{pdf}}" {{args}} \
