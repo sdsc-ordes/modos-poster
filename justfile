@@ -24,15 +24,16 @@ watch *args:
 ## Development environment
 
 # nix development shell
-develop:
-  nix-shell ./tools/nix/shell.nix
+nix-develop:
+  nix develop ./tools/nix
 
 # dockerized development shell (alternative to nix)
-docker-run:
+docker-develop:
   docker run \
+    --user 1001:1001 \
     -it \
-    -w "/work" \
-    --mount type=bind,source="$(pwd)",target=/work \
+    -w "/build/work" \
+    --mount type=bind,source="$(pwd)",target=/build/work \
     "ghcr.io/sdsc-ordes/modos-poster:dev"
 
 

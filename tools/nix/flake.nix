@@ -1,7 +1,7 @@
 {
   inputs = { 
     # Nixpkgs
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils";
   };
   outputs = { self, nixpkgs, flake-utils }:
@@ -22,6 +22,9 @@
           tag = "dev";
           drv = pkgs.mkShell {
             inherit nativeBuildInputs;
+          run = ''
+            chmod -R 777 /build
+           '';
           };
         };
       };
