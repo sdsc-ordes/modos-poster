@@ -29,6 +29,7 @@ nix-develop:
 
 # dockerized development shell (alternative to nix)
 docker-develop:
+  chmod -R 777 ./build
   docker run \
     --user 1000:1000 \
     -it \
