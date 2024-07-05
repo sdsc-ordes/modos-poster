@@ -19,7 +19,7 @@
       packages = {
         image = pkgs.dockerTools.buildNixShellImage {
           name = "ghcr.io/sdsc-ordes/modos-poster";
-          tag = "dev";
+          tag = "latest";
           drv = pkgs.mkShell {
             inherit nativeBuildInputs;
           };

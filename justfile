@@ -34,7 +34,7 @@ docker-develop:
     -it \
     -w "/build/work" \
     --mount type=bind,source="$(pwd)",target=/build/work \
-    "ghcr.io/sdsc-ordes/modos-poster:dev"
+    "ghcr.io/sdsc-ordes/modos-poster:latest"
 
 
 ## Maintenance
