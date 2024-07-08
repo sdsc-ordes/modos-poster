@@ -1,5 +1,6 @@
 // Import a theme
-#import "./sdsc_poster.typ": *
+#import "/src/sdsc_poster.typ": *
+#import themes.boxes: *
 
 
 // Set up paper dimensions and text
