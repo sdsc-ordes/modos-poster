@@ -1,10 +1,10 @@
 // Import a theme
-#import "@preview/postercise:0.1.0": *
-#import themes.better: *
+#import "./postercise.typ": *
+#import themes.boxes: *
 
 // Set up paper dimensions and text
 #set page(width: 24in, height: 18in)
-#set text(font: "Calibri", size: 24pt)
+#set text(font: "Calibri", size: 28pt)
 
 // Set up colors
 #show: theme.with()
@@ -17,50 +17,65 @@
     title: [Title of Research Project:],
     subtitle: [Subtitle],
     authors: [List of Authors],
-    logo-1: image("../assets/images/placeholder.png")
+    logo-1: image("../assets/images/logo-sdsc.jpg", width: 60%)
     )
 
   // Include content in the footer
   #poster-footer[
-
+    #set text(fill: black)
     _Additional information_
-      = Acknowledgements
-    The authors wish to thank those providing guidance, support, and funding.
-  
-    = References
-    #set text(size: 0.8em)
-    + #lorem(8)
-    + #lorem(12)
-
-    #figure(image("../assets/images/logo-sdsc.jpg", width: 60%))
     ]
 
-  = Research Question
-  #lorem(10)
+  // normal-box is used to create sections
+  #normal-box()[
+    = Background
+    #lorem(20)
+    ]
 
-  = Methods
-  #lorem(10)
-  
-  - #lorem(4)
-  - #lorem(6)
+  // color can be overwritten
+  #normal-box(color: aqua)[
+    = Methods
+    #lorem(20)
+    $ gamma = 1/2 alpha beta^2 $
+    #lorem(15)
+    //#figure(image("placeholder.png", width: 50%),
+    caption: [_Fig. 1: Sample Figure_])
+    ]
 
-  // A normal box can be used to highlight
   #normal-box()[
     = Results
-    #lorem(10)
-    
-    #figure(image("../assets/images/placeholder.png", width: 50%),
-    caption: [_Fig. 1: Sample Results_])
+    #lorem(20)
+    //#figure(image("placeholder.png", width: 50%),
+    caption: [_Fig. 2: Sample Results_])
+    #lorem(20)
+    #figure(table(columns: 3, 
+                  rows: 2,
+                  fill: white, stroke: 0.0625em,
+                  [*a*], [*b*], [*c*],
+                  [1], [2], [3]),
+        caption: [_Table 1: Sample Table_])
     ]
-
-  // Focus-box is used for the main findings
-  #focus-box()[
-    = Key Findings
     #lorem(20)
 
+  #focus-box()[
+    = Key Findings
+    + #lorem(5)
+    + #lorem(4)
+    + #lorem(8)
     ]
   
-  = Discussion
-  #lorem(20)
+  #normal-box()[
+    = Discussion
+    #lorem(30)
+    ]
 
+  // Content can also be added without boxes for more flexible formatting
+  = Acknowledgements
+  The authors wish to thank those providing guidance, support, and funding.
+
+  = References
+  #set text(size: 0.8em)
+  + #lorem(8)
+  + #lorem(12)
 ]
+
