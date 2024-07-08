@@ -1,6 +1,6 @@
 // Import a theme
-#import "./postercise.typ": *
-#import themes.boxes: *
+#import "./sdsc_poster.typ": *
+
 
 // Set up paper dimensions and text
 #set page(width: 24in, height: 18in)
