@@ -27,3 +27,7 @@ The presentation uses [typst](https://typst.app) with the [postercise](https://t
 To compile the poster PDF, run `just build-poster`.
 You may also `just watch-poster` to continuously rebuild the poster on source changes.
 
+
+## Acknowledgement
+
+The template is derived from [postercise](https://github.com/dangh3014/postercise).
