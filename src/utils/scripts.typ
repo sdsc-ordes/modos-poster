@@ -43,7 +43,7 @@ SOFTWARE.
 
 
 #let theme(   
-  primary-color: rgb(28,55,103), // Dark blue
+  primary-color: rgb("#262262ff"), // Dark blue
   background-color: white,
   accent-color: rgb(243,163,30), // Yellow
   titletext-color: white,
