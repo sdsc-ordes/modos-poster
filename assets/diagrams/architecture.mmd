@@ -1,0 +1,26 @@
+    C4Context
+      title MODOS architecture
+      Boundary(ClientInstitution, "Client", "Research institution") {
+        Person(User, "Researcher", "on personal machine")
+        System(ModosClient, "MODOS client", "Python API / CLI")
+      }
+
+      Boundary(HostInstitution, "Host", "Provider institution") {
+
+          System(Nginx, "nginx", "Single entrypoint")
+          System(HtsgetServer, "htsget-rs", "Stream BCF/CRAM")
+          System(MinioS3, "Minio S3", "Object storage")
+          System(Server, "MODOS server", "REST API.")
+
+      }
+
+
+      BiRel(ModosClient, Nginx, "HTTPS")
+      Rel(HtsgetServer, Nginx, "stream")
+      Rel(MinioS3, Nginx, "mount")
+      Rel(Nginx, Server, "HTTP requests")
+      Rel(User, ModosClient, "uses")
+
+      UpdateRelStyle(ModosClient, Nginx, $textColor="blue", $lineColor="blue")
+
+      UpdateLayoutConfig($c4ShapeInRow="5", $c4BoundaryInColumn="2")
