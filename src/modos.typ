@@ -10,6 +10,7 @@
 // Set up colors
 #show: theme.with()
 
+// whenever we type zarr, show the logo :p
 #show "zarr": it => box[
   #box(image(
     "/assets/images/logos/zarr.png",
@@ -22,6 +23,7 @@
 #poster-content(col: 2)[
 
   // Add title, subtitle, author, affiliation, logos
+  // TODO: adjust spacing and sizes
   #poster-header(
     title: [MultiOmics Digital Objects (MODOs):],
     subtitle: [One object to rule them all],
@@ -77,18 +79,20 @@
     - S3 bucket for data storage
     - modos-server exposing a REST api
     - easy interactions via python API or CLI
-    #figure(image("/assets/images/figures/architecture_simple.svg", width: 100%))
+    #figure(image("/assets/images/figures/architecture_simple.svg", width: 80%))
     ]
 
   
   #normal-box()[
     = Roadmap
+    Development focused on internal deployment without access control so far. 
+    Once the deployment is stable, we will focus on scaling the system and adding access control.
     #figure(image("/assets/images/figures/roadmap.svg", width: 100%))
-    #lorem(30)
     ]
 
   #normal-box()[
     = Demo
+    // syntax highlighting theme imported from file
     #set raw(theme: "/assets/themes/halcyon.tmTheme")
     #show raw: it => block(
       fill: rgb("#1d2433"),
@@ -132,7 +136,5 @@
 
   = References
   #set text(size: 0.8em)
-  + #lorem(8)
-  + #lorem(12)
 ]
 
