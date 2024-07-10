@@ -5,7 +5,7 @@
 
 // Set up paper dimensions and text
 #set page(width: 120cm, height: 180cm)
-#set text(font: "Verdana", size: 32pt)
+#set text(font: "Verdana", size: 33pt)
 
 // Set up colors
 #show: theme.with()
@@ -19,27 +19,27 @@
 ]
 
 // Add content
-#poster-content[
+#poster-content(col: 2)[
 
   // Add title, subtitle, author, affiliation, logos
   #poster-header(
     title: [MultiOmics Digital Objects (MODOs):],
     subtitle: [One object to rule them all],
     authors: [Cyril Matthey-Doret, Almut Lütge, Assaf Sternberg, Oksana Riba Grognuz],
-    logo-1: image("/assets/images/logos/modos.png", width: 90%),
+    logo-1: image("/assets/images/logos/modos_dark.svg", width: 90%),
   )
 
   // Include content in the footer
   #poster-footer[
     #set text(fill: black)
-    zarr: a hierarchical format for the storage of chunked, compressed, N-dimensional arrays
       #grid(
         columns: 3,
         gutter: 5mm,
-        image("/assets/images/logos/sdsc.jpg", height: 2cm),
-        image("/assets/images/logos/smoc.jpg", height: 2cm),
-        image("/assets/images/logos/phrt.png", height: 2cm),
+        image("/assets/images/logos/sdsc.jpg", height: 3cm),
+        image("/assets/images/logos/smoc.jpg", height: 3cm),
+        image("/assets/images/logos/phrt.png", height: 3cm),
       )
+    zarr: a hierarchical format for the storage of chunked, compressed, N-dimensional arrays
   ]
 
   // normal-box is used to create sections
@@ -51,7 +51,7 @@
   ]
 
   // color can be overwritten
-  #normal-box(color: rgb("#7e87bdff"))[
+  #normal-box(color: rgb("#e0e2efff"))[
     = Objectives
     - queryable, linked metadata
     - automatic metadata synchronisation
@@ -76,24 +76,59 @@
     - htsget server to stream genomics data
     - S3 bucket for data storage
     - modos-server exposing a REST api
-    //caption: [_Server structure to allow remote storage, access and data streaming_])
+    - easy interactions via python API or CLI
+    #figure(image("/assets/images/figures/architecture_simple.svg", width: 100%))
     ]
 
-  #focus-box()[
-    = Key Findings
-    + #lorem(5)
-    + #lorem(4)
-    + #lorem(8)
-    ]
   
   #normal-box()[
-    = Discussion
+    = Roadmap
+    #figure(image("/assets/images/figures/roadmap.svg", width: 100%))
     #lorem(30)
     ]
 
-  // Content can also be added without boxes for more flexible formatting
+  #normal-box()[
+    = Demo
+    #set raw(theme: "/assets/themes/halcyon.tmTheme")
+    #show raw: it => block(
+      fill: rgb("#1d2433"),
+      inset: 18pt,
+      radius: 10pt,
+      text(fill: rgb("#a2aabc"), it)
+    )
+
+    Remote objects can be accessed viat the python API:
+    ```python
+    from modos.api import MODO
+    modo = MODO(
+      "my-bucket/patient_x",
+      s3_endpoint="https://modos.example.org/s3"
+    )
+    modo.list_files()
+    for variant in stream_genomics("variants.bcf"):
+      print(variant)
+    ```
+    
+    Or via the CLI:
+    ```bash
+    modos show -s3 'https://modo.example.org'--zarr my-bucket/patient_x
+    ```
+
+  ]
+
+  #normal-box(color: rgb("#e0e2efff"))[
+    = Want to know more?
+    MODOS is open-source!
+
+    We would love to have you try it out and contributions are welcome.
+    - Repository: https://github.com/sdsc-ordes/modos-api
+    - Documentation: https://sdsc-ordes.github.io/modos-api
+    - Data model: https://sdsc-ordes.github.io/modos-schema
+  ]
+
   = Acknowledgements
   The authors wish to thank those providing guidance, support, and funding.
+
 
   = References
   #set text(size: 0.8em)
