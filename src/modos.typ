@@ -15,48 +15,56 @@
 
   // Add title, subtitle, author, affiliation, logos
   #poster-header(
-    title: [Title of Research Project:],
-    subtitle: [Subtitle],
-    authors: [List of Authors],
-    logo-1: image("../assets/images/logo-sdsc.jpg", width: 60%)
+    title: [MultiOmics Digital Objects (MODOs):],
+    subtitle: [One object to rule them all],
+    authors: [Cyril Matthey-Doret, Almut Lütge, Assaf Sternberg, Oksana Riba Grognuz],
+    logo-1: image("../assets/images/logo-modos.png", width: 90%)
     )
 
   // Include content in the footer
   #poster-footer[
     #set text(fill: black)
-    _Additional information_
+    \*_zarr: a hierarchical format for the storage of chunked, compressed, N-dimensional arrays_
     ]
 
   // normal-box is used to create sections
   #normal-box()[
-    = Background
-    #lorem(20)
+    = Challenges
+    - synchronizing and standardizing *metadata* between different omics
+    - distributed domain knowledge and *data storage*
+    - providing *FAIR data* to facilitate further reseach
     ]
 
   // color can be overwritten
   #normal-box(color: aqua)[
-    = Methods
-    #lorem(20)
-    $ gamma = 1/2 alpha beta^2 $
-    #lorem(15)
-    //#figure(image("placeholder.png", width: 50%),
-    caption: [_Fig. 1: Sample Figure_])
+    = Objectives
+    - queryable, linked metadata
+    - automatic metadata synchronisation
+    - efficient compression
+    - remote capabilities 
+    - standardization
+    - streaming
+    #figure(image("../assets/images/multiomics.png", width: 50%),
+    caption: [_Synchronizing multiomics data within one digital object_])
     ]
-
+  
   #normal-box()[
-    = Results
-    #lorem(20)
-    //#figure(image("placeholder.png", width: 50%),
-    caption: [_Fig. 2: Sample Results_])
-    #lorem(20)
-    #figure(table(columns: 3, 
-                  rows: 2,
-                  fill: white, stroke: 0.0625em,
-                  [*a*], [*b*], [*c*],
-                  [1], [2], [3]),
-        caption: [_Table 1: Sample Table_])
+    = MODOs design
+    - modos-schema defines metadata
+    - hierarchical *zarr*\* archives
+    - associated genomic files
+    #figure(image("../assets/images/digital-object.png", width: 100%),
+    caption: [_Hierarchical object structure with metadata, arrays and files_])
     ]
-    #lorem(20)
+  
+  #normal-box()[
+    = MODOs server
+    - htsget server to stream genomics data
+    - S3 bucket for data storage
+    - modos-server exposing a REST api
+    //#figure(image("../assets/images/multiomics.png", width: 50%),
+    //caption: [_Server structure to allow remote storage, access and data streaming_])
+    ]
 
   #focus-box()[
     = Key Findings
