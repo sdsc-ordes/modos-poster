@@ -98,7 +98,7 @@ SOFTWARE.
           outset: 0%,
           [
             #box(
-              inset: (top: 0%, left: 4%, right: 4%, bottom: 4%),
+              inset: (top: 0%, left: 4%, right: 4%, bottom: 6%),
               body
               )
           ]
