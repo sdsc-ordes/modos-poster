@@ -4,11 +4,19 @@
 
 
 // Set up paper dimensions and text
-#set page(width: 24in, height: 18in)
-#set text(font: "Calibri", size: 28pt)
+#set page(width: 120cm, height: 180cm)
+#set text(font: "Verdana", size: 32pt)
 
 // Set up colors
 #show: theme.with()
+
+#show "zarr": it => box[
+  #box(image(
+    "/assets/images/logos/zarr.png",
+    height: 1em
+  ))
+  #it
+]
 
 // Add content
 #poster-content[
@@ -18,42 +26,48 @@
     title: [MultiOmics Digital Objects (MODOs):],
     subtitle: [One object to rule them all],
     authors: [Cyril Matthey-Doret, Almut Lütge, Assaf Sternberg, Oksana Riba Grognuz],
-    logo-1: image("../assets/images/logo-modos.png", width: 90%)
-    )
+    logo-1: image("/assets/images/logos/modos.png", width: 90%),
+  )
 
   // Include content in the footer
   #poster-footer[
     #set text(fill: black)
-    \*_zarr: a hierarchical format for the storage of chunked, compressed, N-dimensional arrays_
-    ]
+    zarr: a hierarchical format for the storage of chunked, compressed, N-dimensional arrays
+      #grid(
+        columns: 3,
+        gutter: 5mm,
+        image("/assets/images/logos/sdsc.jpg", height: 2cm),
+        image("/assets/images/logos/smoc.jpg", height: 2cm),
+        image("/assets/images/logos/phrt.png", height: 2cm),
+      )
+  ]
 
   // normal-box is used to create sections
   #normal-box()[
     = Challenges
-    - synchronizing and standardizing *metadata* between different omics
-    - distributed domain knowledge and *data storage*
-    - providing *FAIR data* to facilitate further reseach
-    ]
+    - Traceability and synchronization of *metadata* across omics layers
+    - distributed domain knowledge and data *storage*
+    - produce *FAIR* data to facilitate further reseach
+  ]
 
   // color can be overwritten
-  #normal-box(color: aqua)[
+  #normal-box(color: rgb("#7e87bdff"))[
     = Objectives
     - queryable, linked metadata
     - automatic metadata synchronisation
     - efficient compression
-    - remote capabilities 
+    - remote streaming access
     - standardization
-    - streaming
-    #figure(image("../assets/images/multiomics.png", width: 50%),
+    #figure(image("/assets/images/figures/multiomics.png", width: 50%),
     caption: [_Synchronizing multiomics data within one digital object_])
     ]
   
   #normal-box()[
     = MODOs design
-    - modos-schema defines metadata
-    - hierarchical *zarr*\* archives
-    - associated genomic files
-    #figure(image("../assets/images/digital-object.png", width: 100%),
+    - hierarchical zarr archives for arrays
+    - associated omics data files
+    - metadata with formal schema linking all artifacts
+    #figure(image("/assets/images/figures/digital-object.png", width: 100%),
     caption: [_Hierarchical object structure with metadata, arrays and files_])
     ]
   
@@ -62,7 +76,6 @@
     - htsget server to stream genomics data
     - S3 bucket for data storage
     - modos-server exposing a REST api
-    //#figure(image("../assets/images/multiomics.png", width: 50%),
     //caption: [_Server structure to allow remote storage, access and data streaming_])
     ]
 
