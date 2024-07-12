@@ -11,13 +11,13 @@
 #show: theme.with()
 
 // whenever we type zarr, show the logo :p
-#show "zarr": it => box[
-  #box(image(
-    "/assets/images/logos/zarr.png",
-    height: 1em
-  ))
-  #it
-]
+//#show "zarr": it => box[
+//  #box(image(
+//    "/assets/images/logos/zarr.png",
+//    height: 1em
+//  ))
+//  #it
+//]
 
 // Add content
 #poster-content(col: 2)[
@@ -103,21 +103,38 @@
 
     Remote objects can be accessed viat the python API:
     ```python
-    from modos.api import MODO
-    modo = MODO(
-      "my-bucket/patient_x",
-      s3_endpoint="https://modos.example.org/s3"
-    )
-    modo.list_files()
-    for variant in stream_genomics("variants.bcf"):
-      print(variant)
+    >>> from modos.api import MODO
+    >>> ex = MODO('./example-digital-object')
+    >>> ex.list_samples()
+    ['sample/sample1']
+    >>> ex.metadata["data/calls1"]
+    {'@type': 'DataEntity',
+     'data_format': 'BCF',
+     'data_path': 'calls1.bcf',
+     'description': 'variant calls for tests',
+     'has_reference': ['reference/reference1'],
+     'has_sample': ['sample/sample1'],
+     'name': 'Calls 1'}
+    >>> rec = next(ex.stream_genomics("calls1.bcf", "chr1:103-1321"))
+    >>> rec.alleles
+    ('A', 'C')
+
     ```
     
     Or via the CLI:
     ```bash
-    modos show -s3 'https://modo.example.org'--zarr my-bucket/patient_x
+    $ modos show  -s3 https://s3.example.org --zarr ex-bucket/ex-modo
+    /
+     ├── assay
+     │   └── assay1
+     ├── data
+     │   ├── calls1
+     │   └── demo1
+     ├── reference
+     │   └── reference1
+     └── sample
+         └── sample1
     ```
-
   ]
 
   #normal-box(color: rgb("#e0e2efff"))[
@@ -136,5 +153,8 @@
 
   = References
   #set text(size: 0.8em)
+  #show "zarr": "zarr"
+  + Alistair Miles (2024) “zarr-developers/zarr-python: v2.17.0”. Zenodo. doi: 10.5281/zenodo.10659377.
+  + Jerome Kelleher, et al. (2019) "htsget: a protocol for securely streaming genomic data", Bioinformatics, doi: 10.1093/bioinformatics/bty492
 ]
 
