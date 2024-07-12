@@ -81,7 +81,7 @@ SOFTWARE.
       show heading: set text(white)
       show heading: set align(center+horizon)
       show heading: set block(width: 108.696%, 
-                              height: 1.2em,
+                              height: 1.8em,
                               // stroke: primary-color,
                               fill: primary-color,
                               )
