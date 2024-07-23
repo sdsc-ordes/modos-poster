@@ -69,7 +69,7 @@
     - hierarchical zarr archives for arrays
     - associated omics data files
     - metadata with formal schema linking all artifacts
-    #figure(image("/assets/images/figures/digital-object.png", width: 100%),
+    #figure(image("/assets/images/figures/digital-object-structure.png", width: 100%),
     caption: [_Hierarchical object structure with metadata, arrays and files_])
     ]
   
