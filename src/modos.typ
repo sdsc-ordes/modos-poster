@@ -62,13 +62,16 @@
   // color can be overwritten
   #normal-box(color: rgb("#e0e2efff"))[
     = Objectives
+    #grid(columns: 2, gutter: 10mm,
+    [
     - queryable, linked metadata
     - automatic metadata synchronisation
     - efficient compression
     - remote streaming access
-    - standardization
+    - standardization],[
     #figure(image("/assets/images/figures/multiomics.png", width: 50%),
-    caption: [_Synchronizing multiomics data within one digital object_])
+    caption: [_Synchronizing multiomics data within one digital object_])]
+  )
     ]
   
   #normal-box()[
@@ -108,13 +111,37 @@
       text(fill: rgb("#a2aabc"), it)
     )
 
-    Remote objects can be accessed viat the python API:
-    #grid(columns: 2, gutter: 10mm,
+    Remote objects can be accessed viat the CLI or python API:
+    #grid(columns: 2, rows: 2, gutter: 2mm,
+      image("/assets/images/figures/qr-api.png", width: 3em),
+      image("/assets/images/figures/qr-api.png", width: 3em),
+      [```bash
+      $ modos show --zarr s3://bucket/ex data
+      /
+       └── data
+           ├── calls1
+           └── demo1
+
+      $ modos show s3://bucket/ex data/demo1
+      data/demo1:
+        '@type': DataEntity
+        data_format: CRAM
+        data_path: demo1.cram
+        description: Dummy data for tests
+        has_reference:
+        - reference/reference1
+        has_sample:
+        - sample/sample1
+        name: Demo 1
+
+      $ modos stream s3://bucket/ex/demo1.cram 
+      ```],
       [```python
       >>> from modos.api import MODO
-      >>> ex = MODO('./example-digital-object')
+      >>> ex = MODO('s3://bucket/ex')
       >>> ex.list_samples()
       ['sample/sample1']
+
       >>> ex.metadata["data/calls1"]
       {'@type': 'DataEntity',
        'data_format': 'BCF',
@@ -123,31 +150,15 @@
        'has_reference': ['reference/reference1'],
        'has_sample': ['sample/sample1'],
        'name': 'Calls 1'}
-      >>> rec = next(ex.stream_genomics("calls1.bcf", "chr1:103-1321"))
-      >>> rec.alleles
+
+      >>> stream = ex.stream_genomics(
+        "calls1.bcf", "chr1:103-1321"
+      )
+      >>> next(stream).alleles
       ('A', 'C')
       ```],
-      image("/assets/images/figures/qr-api.png", width: 5em)
     )
 
-    
-    Or via the CLI:
-    #grid(columns: 2, gutter: 10mm,
-      [```bash
-      $ modos show  -s3 https://s3.example.org --zarr ex-bucket/ex-modo
-      /
-       ├── assay
-       │   └── assay1
-       ├── data
-       │   ├── calls1
-       │   └── demo1
-       ├── reference
-       │   └── reference1
-       └── sample
-           └── sample1
-      ```],
-      image("/assets/images/figures/qr-api.png", width: 5em)
-    )
   ]
 
   #normal-box(color: rgb("#e0e2efff"))[
