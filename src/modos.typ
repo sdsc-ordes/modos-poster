@@ -54,9 +54,9 @@
   // normal-box is used to create sections
   #normal-box()[
     = Challenges
-    - Traceability and synchronization of *metadata* across omics layers
-    - distributed domain knowledge and data *storage*
-    - produce *FAIR* data to facilitate further reseach
+    - Omics file are often separated from their context, losing their traceability
+    - Large data volumes require efficient storage and access
+    - Research data is often siloed and not easily accessible
   ]
 
   // color can be overwritten
@@ -64,10 +64,10 @@
     = Objectives
     #grid(columns: 2, gutter: 10mm,
     [
-    - queryable, linked metadata
-    - automatic metadata synchronisation
+    - FAIR queryable, linked metadata to facilitate further research
+    - automatic metadata sync. across omics
     - efficient compression
-    - remote streaming access
+    - remote (distributed) streaming access
     - standardization],[
     #figure(image("/assets/images/figures/multiomics.png", width: 50%),
     caption: [_Synchronizing multiomics data within one digital object_])]
