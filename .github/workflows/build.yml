@@ -1,0 +1,29 @@
+name: Build poster with typst
+
+on:
+  workflow_call:
+    inputs:
+      is_release:
+        required: true
+        type: boolean
+
+jobs:
+
+  build_typst:
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/sdsc-ordes/modos-poster:latest
+
+    steps:
+
+      - uses: actions/checkout@v4
+
+      - name: build
+        run: just build
+
+      - name: upload pdf
+        uses: actions/upload-artifact@v4
+        if: ${{ inputs.is_release }}
+        with:
+          name: poster
+          path: build/modos.pdf
