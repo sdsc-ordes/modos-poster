@@ -11,15 +11,16 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
+    # NOTE: use nix container instead
     container:
-      image: ghcr.io/sdsc-ordes/modos-poster:latest
+      image: ghcr.io/typst/typst:latest
 
     steps:
 
       - uses: actions/checkout@v4
 
       - name: build
-        run: just build
+        run: typst compile --root . src/modos.typ build/modos.pdf
 
       - name: upload pdf
         uses: actions/upload-artifact@v4
