@@ -1,0 +1,16 @@
+name: Main and PR pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+  pull_request:
+    branches:
+      - main
+
+  jobs:
+    normal:
+      uses: ./.github/workflows/build.yaml
+      with:
+        is_release: false
