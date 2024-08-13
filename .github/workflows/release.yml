@@ -13,6 +13,7 @@ jobs:
       is_release: true
 
   make_release:
+    runs-on: ubuntu-latest
     needs:
       build_typst
 
