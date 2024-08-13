@@ -1,0 +1,30 @@
+name: Build poster with typst
+
+on:
+  workflow_call:
+    inputs:
+      is_release:
+        required: true
+        type: boolean
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    # NOTE: use nix container instead
+    container:
+      image: ghcr.io/typst/typst:latest
+
+    steps:
+
+      - uses: actions/checkout@v4
+
+      - name: build
+        run: typst compile --root . src/modos.typ modos.pdf
+
+      - name: upload pdf
+        uses: actions/upload-artifact@v4
+        if: ${{ inputs.is_release }}
+        with:
+          name: poster
+          path: modos.pdf

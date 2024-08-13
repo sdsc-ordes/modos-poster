@@ -1,0 +1,34 @@
+name: Include poster in release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+
+  build_typst:
+    uses: ./.github/workflows/build.yml
+    with:
+      is_release: true
+
+  make_release:
+    runs-on: ubuntu-latest
+    needs:
+      build_typst
+
+    steps:
+
+      - uses: actions/checkout@v4
+
+      - name: get pdf
+        uses: actions/download-artifact@v4.1.8
+        with:
+          name: poster
+          path: build/
+
+      - name: create release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: build/modos.pdf
+

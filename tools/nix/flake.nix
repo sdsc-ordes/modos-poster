@@ -10,18 +10,29 @@
       pkgs = import nixpkgs {
         inherit system;
       };
-      nativeBuildInputs = with pkgs; [ just typst ];
+      nativeBuildInputs = with pkgs; [
+        bash
+        coreutils
+        curl
+        findutils
+        git
+        jq
+        just
+        typst
+      ];
     in
     {
       devShells.default = pkgs.mkShell {
         inherit nativeBuildInputs;
+        shellHook = "unset TMPDIR";
       };
       packages = {
-        image = pkgs.dockerTools.buildNixShellImage {
+        image = pkgs.dockerTools.buildLayeredImage {
           name = "ghcr.io/sdsc-ordes/modos-poster";
           tag = "latest";
-          drv = pkgs.mkShell {
-            inherit nativeBuildInputs;
+          contents = nativeBuildInputs;
+          config = {
+            Cmd = [ "/bin/bash" ];
           };
         };
       };
