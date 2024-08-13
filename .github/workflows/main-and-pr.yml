@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+
   workflow_call:
 
   pull_request:
@@ -11,7 +12,7 @@ on:
       - main
 
 jobs:
-  normal:
+  build:
     uses: ./.github/workflows/build.yml
     with:
       is_release: false

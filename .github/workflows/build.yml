@@ -9,7 +9,7 @@ on:
 
 jobs:
 
-  build_typst:
+  build:
     runs-on: ubuntu-latest
     container:
       image: ghcr.io/sdsc-ordes/modos-poster:latest
