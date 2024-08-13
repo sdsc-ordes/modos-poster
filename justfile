@@ -3,6 +3,8 @@ set shell := ["bash", "-cue"]
 root := justfile_directory()
 src := "./src/modos.typ"
 pdf := "./build/modos.pdf"
+image := "ghcr.io/sdsc-ordes/modos-poster"
+tag := "latest"
 
 
 ## Generate poster
@@ -35,12 +37,16 @@ develop-docker:
     -it \
     -w "/build/work" \
     --mount type=bind,source="$(pwd)",target=/build/work \
-    "ghcr.io/sdsc-ordes/modos-poster:latest"
+    {{image}}:{{tag}}
 
 
 ## Maintenance
 
 # builds oci image with nix and load into docker
-build-docker:
+docker-build:
   nix build -L "./tools/nix#image" --out-link "build/image" \
   && docker load < "build/image"
+
+# build and push image
+docker-push: docker-build
+  docker push {{image}}:{{tag}}
