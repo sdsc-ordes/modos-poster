@@ -19,13 +19,13 @@ jobs:
 
     steps:
 
+      - uses: actions/checkout@v4
+
       - name: get pdf
         uses: actions/download-artifact@v4.1.8
         with:
           name: poster
           path: modos.pdf
-
-      - uses: actions/checkout@v4
 
       - name: create release
         uses: softprops/action-gh-release@v2
