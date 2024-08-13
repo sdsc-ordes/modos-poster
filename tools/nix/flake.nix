@@ -10,7 +10,16 @@
       pkgs = import nixpkgs {
         inherit system;
       };
-      nativeBuildInputs = with pkgs; [ just typst ];
+      nativeBuildInputs = with pkgs; [
+        just
+        typst
+        coreutils
+        bash
+        zsh
+        curl
+        git
+        jq
+      ];
     in
     {
       devShells.default = pkgs.mkShell {
