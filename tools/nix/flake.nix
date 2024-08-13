@@ -11,26 +11,33 @@
         inherit system;
       };
       nativeBuildInputs = with pkgs; [
-        just
-        typst
-        coreutils
         bash
-        zsh
+        coreutils
         curl
+        findutils
         git
         jq
+        just
+        typst
       ];
     in
     {
       devShells.default = pkgs.mkShell {
         inherit nativeBuildInputs;
+        shellHook = "unset TMPDIR";
       };
       packages = {
-        image = pkgs.dockerTools.buildNixShellImage {
+        image = pkgs.dockerTools.buildImage {
           name = "ghcr.io/sdsc-ordes/modos-poster";
           tag = "latest";
-          drv = pkgs.mkShell {
-            inherit nativeBuildInputs;
+          copyToRoot = pkgs.buildEnv {
+            name = "image-env";
+            paths = nativeBuildInputs;
+            pathsToLink = [ "/bin" ];
+          };
+          config = {
+            Env = [ "PATH=/bin:$PATH" ];
+            Cmd = [ "${pkgs.bash}/bin/bash" ];
           };
         };
       };
