@@ -1,4 +1,8 @@
 # modos-poster
+
+[![DOI](https://zenodo.org/badge/824321703.svg)](https://zenodo.org/doi/10.5281/zenodo.13312849)
+
+
 Poster presentation of modos (multi-omics digital object system).
 
 ## Setup
