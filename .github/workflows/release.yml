@@ -1,0 +1,33 @@
+name: Include poster in release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+
+  build_typst:
+    uses: ./.github/workflows/build.yml
+    with:
+      is_release: true
+
+  make_release:
+    needs:
+      build_typst
+
+    steps:
+
+      - name: get pdf
+        uses: actions/download-artifact@v4.1.8
+        with:
+          name: poster
+          path: build/modos.pdf
+
+      - uses: actions/checkout@v4
+
+      - name: create release
+        uses: actions/action-gh-release@v2
+        with:
+          files: build/modos.pdf
+
