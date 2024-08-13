@@ -27,17 +27,12 @@
         shellHook = "unset TMPDIR";
       };
       packages = {
-        image = pkgs.dockerTools.buildImage {
+        image = pkgs.dockerTools.buildLayeredImage {
           name = "ghcr.io/sdsc-ordes/modos-poster";
           tag = "latest";
-          copyToRoot = pkgs.buildEnv {
-            name = "image-env";
-            paths = nativeBuildInputs;
-            pathsToLink = [ "/bin" ];
-          };
+          contents = nativeBuildInputs;
           config = {
-            Env = [ "PATH=/bin:$PATH" ];
-            Cmd = [ "${pkgs.bash}/bin/bash" ];
+            Cmd = [ "/bin/bash" ];
           };
         };
       };
