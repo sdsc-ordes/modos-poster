@@ -28,7 +28,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: create release
-        uses: actions/action-gh-release@v2
+        uses: softprops/action-gh-release@v2
         with:
           files: build/modos.pdf
 
