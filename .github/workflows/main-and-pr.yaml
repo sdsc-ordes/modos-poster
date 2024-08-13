@@ -10,8 +10,8 @@ on:
     branches:
       - main
 
-  jobs:
-    normal:
-      uses: ./.github/workflows/build.yaml
-      with:
-        is_release: false
+jobs:
+  normal:
+    uses: ./.github/workflows/build.yaml
+    with:
+      is_release: false
