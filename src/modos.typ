@@ -175,7 +175,7 @@
 
   = Acknowledgements
   MODOS development is funded by the Personalized Health Data Analysis Hub, a joint initiative of PHRT and SDSC.
- We gratefully acknowledge the Health 2030 Genome Center for their substantial contributions to the development of MODOS by providing test data sets, deployment infrastructure, and expertise
+ We gratefully acknowledge members of the DAIP team at the Health 2030 Genome Center for their substantial contributions to the development of MODOS by providing test data sets, deployment infrastructure, and expertise
 
 
   = References
