@@ -5,12 +5,12 @@
 
 // Set up paper dimensions and text
 #set page(width: 120cm, height: 180cm)
-#set text(font: "Latin Modern Sans", size: 33pt)
+#set text(font: "Latin Modern Sans", size: 36pt)
 
 #let big_text(t) = text(size: 50pt, font: "Latin Modern Sans", t);
 
 // Set up colors
-#show: theme.with(titletext-size: 120pt)
+#show: theme.with(titletext-size: 122pt)
 
 // whenever we type zarr, show the logo :p
 #let zarr =  box[
@@ -113,9 +113,9 @@
 
     Remote objects can be accessed viat the CLI or python API:
     #grid(columns: 2, rows: 2, gutter: 2mm,
-      image("/assets/images/figures/qr-api.png", width: 3em),
-      image("/assets/images/figures/qr-api.png", width: 3em),
-      [```bash
+      [#box(image("/assets/images/figures/qr-api.png", width: 1.5em)) #text(62pt)[CLI]],
+      [#box(image("/assets/images/figures/qr-api.png", width: 1.5em)) #text(62pt)[API]],
+      [#text(33pt)[```bash
       $ modos show --zarr s3://bucket/ex data
       /
        └── data
@@ -135,8 +135,8 @@
         name: Demo 1
 
       $ modos stream s3://bucket/ex/demo1.cram 
-      ```],
-      [```python
+      ```]],
+      [#text(33pt)[```python
       >>> from modos.api import MODO
       >>> ex = MODO('s3://bucket/ex')
       >>> ex.list_samples()
@@ -156,7 +156,7 @@
       )
       >>> next(stream).alleles
       ('A', 'C')
-      ```],
+      ```]],
     )
 
   ]
