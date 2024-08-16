@@ -13,7 +13,14 @@
 #show: theme.with(titletext-size: 122pt)
 
 // whenever we type zarr, show the logo :p
-#let zarr =  box[
+#let linkml = box[
+  #box(image(
+    "/assets/images/logos/linkml.png",
+    height: 1em
+  ))
+  linkml 
+]
+#let zarr = box[
   #box(image(
     "/assets/images/logos/zarr.png",
     height: 1em
@@ -40,15 +47,14 @@
   // Include content in the footer
   #poster-footer[
     #set text(fill: black)
+    #align(right)[
       #grid(
         columns: 4,
-        gutter: 5mm,
         image("/assets/images/logos/sdsc.jpg", height: 3cm),
         image("/assets/images/logos/smoc.jpg", height: 4cm),
         image("/assets/images/logos/phrt.png", height: 4cm),
         image("/assets/images/logos/health2030.jpg", height: 4cm),
-      )
-    #zarr: a hierarchical format for the storage of chunked, compressed, N-dimensional arrays
+      )],
   ]
 
   // normal-box is used to create sections
@@ -78,7 +84,7 @@
     = MODOs design
     - hierarchical #zarr archives for arrays
     - associated omics data files
-    - metadata with formal schema linking all artifacts
+    - metadata with formal #linkml schema linking all artifacts
     #figure(image("/assets/images/figures/digital-object-structure.svg", width: 100%),
     caption: [_Hierarchical object structure with metadata, arrays and files_])
     ]
@@ -165,7 +171,7 @@
     = Want to know more?
     MODOS is open-source!
 
-    We would love to have you try it out and contributions are welcome.
+    We would love to have you try it out, and contributions are welcome.
     #grid(columns: 2, gutter: 10mm,
         [- Repository:], [github.com/sdsc-ordes/modos-api],
         [- Documentation:], [sdsc-ordes.github.io/modos-api],
@@ -182,5 +188,15 @@
   #set text(size: 0.8em)
   + Alistair Miles (2024) “zarr-developers/zarr-python: v2.17.0”. Zenodo. doi: 10.5281/zenodo.10659377.
   + Jerome Kelleher, et al. (2019) "htsget: a protocol for securely streaming genomic data", Bioinformatics, doi: 10.1093/bioinformatics/bty492
+  
+  = Notes
+  #zarr: a hierarchical format for the storage of chunked, compressed, N-dimensional arrays
+
+  #linkml: a general purpose modeling language that can be used with linked data, JSON, and other formalisms.
+
+  #box(
+    width: 10cm,
+    image("/assets/images/logos/cc-by.svg"),
+  ) This work is licensed under the #link("https://creativecommons.org/licenses/by/4.0")[Creative Commons Attribution 4.0 International License]
 ]
 
