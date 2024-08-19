@@ -5,9 +5,9 @@
 
 // Set up paper dimensions and text
 #set page(width: 120cm, height: 180cm)
-#set text(font: "Latin Modern Sans", size: 36pt)
+#set text(font: "Museo", size: 36pt, weight: 100)
 
-#let big_text(t) = text(size: 50pt, font: "Latin Modern Sans", t);
+#let big_text(t) = text(font: "Century Gothic Paneuropean", weight: 300, t);
 
 // Set up colors
 #show: theme.with(titletext-size: 122pt)
@@ -33,10 +33,8 @@
 
   // Add title, subtitle, author, affiliation, logos
   #poster-header(
-    title: [MultiOmics Digital Objects (MODOs)],
-    subtitle: [
-      One object to map them all
-    ],
+    title: big_text[MultiOmics Digital Objects (MODOS)],
+    subtitle: big_text[One object to map them all],
     authors: [
       Cyril Matthey-Doret, Almut Lütge, Assaf Sternberg, Oksana Riba Grognuz
     ],
@@ -50,6 +48,7 @@
     #align(right)[
       #grid(
         columns: 4,
+        inset: 12mm,
         image("/assets/images/logos/sdsc.jpg", height: 3cm),
         image("/assets/images/logos/smoc.jpg", height: 4cm),
         image("/assets/images/logos/phrt.png", height: 4cm),
@@ -59,7 +58,7 @@
 
   // normal-box is used to create sections
   #normal-box()[
-    = Challenges
+    #big_text[= Challenges]
     - Omics file are often separated from their context, losing their traceability
     - Large data volumes require efficient storage and access
     - Research data is often siloed and not easily accessible
@@ -67,7 +66,7 @@
 
   // color can be overwritten
   #normal-box(color: rgb("#e0e2efff"))[
-    = Objectives
+    #big_text[= Objectives]
     #grid(columns: 2, gutter: 10mm,
     [
     - FAIR queryable, linked metadata to facilitate further research
@@ -81,7 +80,7 @@
     ]
   
   #normal-box()[
-    = MODOs design
+    #big_text[= MODOS Design]
     - hierarchical #zarr archives for arrays
     - associated omics data files
     - metadata with formal #linkml schema linking all artifacts
@@ -90,7 +89,7 @@
     ]
   
   #normal-box()[
-    = MODOs server
+    #big_text[= MODOS Server]
     - htsget server to stream genomics data
     - S3 bucket for data storage
     - modos-server exposing a REST api
@@ -100,14 +99,14 @@
 
   
   #normal-box()[
-    = Roadmap
+    #big_text[= Roadmap]
     Development focused on internal deployment without access control so far. 
     Once the deployment is stable, we will focus on scaling the system and adding access control.
     #figure(image("/assets/images/figures/roadmap.svg", width: 100%))
     ]
 
   #normal-box()[
-    = Demo
+    #big_text[= Demo]
     // syntax highlighting theme imported from file
     #set raw(theme: "/assets/themes/halcyon.tmTheme")
     #show raw: it => block(
@@ -118,9 +117,9 @@
     )
 
     Remote objects can be accessed viat the CLI or python API:
-    #grid(columns: 2, rows: 2, gutter: 2mm,
-      [#box(image("/assets/images/figures/qr-api.png", width: 1.5em)) #text(62pt)[CLI]],
-      [#box(image("/assets/images/figures/qr-api.png", width: 1.5em)) #text(62pt)[API]],
+    #grid(columns: 2, rows: 2, row-gutter: 4mm, column-gutter: 2mm,
+      [#box(image("/assets/images/figures/qr-api.png", width: 1.5em)) #big_text[CLI]],
+      [#box(image("/assets/images/figures/qr-api.png", width: 1.5em)) #big_text[API]],
       [#text(33pt)[```bash
       $ modos show --zarr s3://bucket/ex data
       /
@@ -139,6 +138,7 @@
         has_sample:
         - sample/sample1
         name: Demo 1
+
 
       $ modos stream s3://bucket/ex/demo1.cram 
       ```]],
@@ -168,7 +168,7 @@
   ]
 
   #normal-box(color: rgb("#e0e2efff"))[
-    = Want to know more?
+    #big_text[= Want to know more?]
     MODOS is open-source!
 
     We would love to have you try it out, and contributions are welcome.
@@ -179,17 +179,17 @@
       )
   ]
 
-  = Acknowledgements
+  #big_text[= Acknowledgements]
   MODOS development is funded by the Personalized Health Data Analysis Hub, a joint initiative of PHRT and SDSC.
  We gratefully acknowledge members of the DAIP team at the Health 2030 Genome Center for their substantial contributions to the development of MODOS by providing test data sets, deployment infrastructure, and expertise
 
 
-  = References
+ #big_text[= References]
   #set text(size: 0.8em)
   + Alistair Miles (2024) “zarr-developers/zarr-python: v2.17.0”. Zenodo. doi: 10.5281/zenodo.10659377.
   + Jerome Kelleher, et al. (2019) "htsget: a protocol for securely streaming genomic data", Bioinformatics, doi: 10.1093/bioinformatics/bty492
   
-  = Notes
+  #big_text[= Notes]
   #zarr: a hierarchical format for the storage of chunked, compressed, N-dimensional arrays
 
   #linkml: a general purpose modeling language that can be used with linked data, JSON, and other formalisms.
