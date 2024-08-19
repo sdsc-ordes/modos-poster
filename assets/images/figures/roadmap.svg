@@ -165,15 +165,15 @@
      showgrid="false"
      showguides="true"
      inkscape:guide-bbox="true"
-     inkscape:zoom="0.36041668"
-     inkscape:cx="-1021.0404"
-     inkscape:cy="-396.763"
-     inkscape:window-width="2560"
-     inkscape:window-height="1360"
-     inkscape:window-x="0"
-     inkscape:window-y="0"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="g17741"
+     inkscape:zoom="1.4416667"
+     inkscape:cx="707.51443"
+     inkscape:cy="440.46242"
+     inkscape:window-width="1268"
+     inkscape:window-height="650"
+     inkscape:window-x="56"
+     inkscape:window-y="50"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg268"
      fit-margin-top="0"
      fit-margin-left="0"
      fit-margin-right="0"
@@ -685,14 +685,14 @@
   <text
      xml:space="preserve"
      style="font-style:normal;font-weight:normal;font-size:19.8986px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.497464"
-     x="617.57568"
+     x="679.8949"
      y="433.2626"
      id="text17727-0"><tspan
        sodipodi:role="line"
        id="tspan17725-6"
-       x="617.57568"
+       x="679.8949"
        y="433.2626"
-       style="font-weight:bold;fill:#000000;stroke-width:0.497464">Multi-Host</tspan></text>
+       style="font-weight:bold;text-align:center;text-anchor:middle;fill:#000000;stroke-width:0.497464">Multi-Host</tspan></text>
   <text
      xml:space="preserve"
      style="font-style:normal;font-weight:normal;font-size:19.8986px;line-height:1.15;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.497464"
@@ -740,14 +740,14 @@
      x="437.57312"
      y="433.02466"
      id="text3588"><tspan
-       sodipodi:role="line"
        x="437.57312"
        y="433.02466"
        style="font-weight:bold;text-align:center;text-anchor:middle;fill:#000000;stroke-width:0.497464"
-       id="tspan3586">Test /</tspan><tspan
-       sodipodi:role="line"
+       id="tspan3586"
+       sodipodi:role="line">Tests and</tspan><tspan
        x="437.57312"
        y="457.89792"
        style="font-weight:bold;text-align:center;text-anchor:middle;fill:#000000;stroke-width:0.497464"
-       id="tspan3713">Refinement</tspan></text>
+       id="tspan3713"
+       sodipodi:role="line">Refinement</tspan></text>
 </svg>
