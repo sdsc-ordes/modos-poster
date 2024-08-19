@@ -74,7 +74,7 @@
     - efficient compression
     - remote (distributed) streaming access
     - standardization],[
-    #figure(image("/assets/images/figures/multiomics.", width: 50%),
+    #figure(image("/assets/images/figures/multiomics.svg", width: 60%),
     caption: [_Synchronizing multiomics data within one digital object_])]
   )
     ]
