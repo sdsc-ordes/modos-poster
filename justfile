@@ -12,6 +12,7 @@ tag := "latest"
 # build poster
 build-poster *args:
   typst compile \
+    --font-path ./assets/fonts \
     --root "{{root}}" \
     "{{src}}" "{{pdf}}" {{args}}
 
@@ -20,6 +21,7 @@ watch-poster *args:
   typst watch \
     --open \
     --root "{{root}}" \
+    --font-path ./assets/fonts \
     "{{src}}" "{{pdf}}" {{args}} \
 
 
