@@ -4,13 +4,13 @@
 
 
 // Set up paper dimensions and text
-#set page(width: 120cm, height: 180cm)
-#set text(font: "Museo", size: 36pt, weight: 100)
+#set page(width: 84.1cm, height: 118.9cm)
+#set text(font: "Museo", size: 26pt, weight: 100)
 
 #let big_text(t) = text(font: "Century Gothic Paneuropean", weight: 300, t);
 
 // Set up colors
-#show: theme.with(titletext-size: 122pt)
+#show: theme.with(titletext-size: 86pt)
 
 // whenever we type zarr, show the logo :p
 #let linkml = box[
@@ -49,10 +49,10 @@
       #grid(
         columns: 4,
         inset: 12mm,
-        image("/assets/images/logos/sdsc.jpg", height: 3cm),
-        image("/assets/images/logos/smoc.jpg", height: 4cm),
-        image("/assets/images/logos/phrt.png", height: 4cm),
-        image("/assets/images/logos/health2030.jpg", height: 4cm),
+        image("/assets/images/logos/sdsc.jpg", height: 2cm),
+        image("/assets/images/logos/smoc.jpg", height: 3cm),
+        image("/assets/images/logos/phrt.png", height: 3cm),
+        image("/assets/images/logos/health2030.jpg", height: 3cm),
       )],
   ]
 
@@ -67,7 +67,7 @@
   // color can be overwritten
   #normal-box(color: rgb("#e0e2efff"))[
     #big_text[= Objectives]
-    #grid(columns: 2, gutter: 10mm,
+    #grid(columns: 2, gutter: 6mm,
     [
     - FAIR queryable, linked metadata to facilitate further research
     - automatic metadata sync. across omics
@@ -102,7 +102,7 @@
     #big_text[= Roadmap]
     Development focused on internal deployment without access control so far. 
     Once the deployment is stable, we will focus on scaling the system and adding access control.
-    #figure(image("/assets/images/figures/roadmap.svg", width: 100%))
+    #figure(image("/assets/images/figures/roadmap.svg", width: 80%))
     ]
 
   #normal-box()[
@@ -120,7 +120,7 @@
     #grid(columns: 2, rows: 2, row-gutter: 4mm, column-gutter: 2mm,
       [#box(image("/assets/images/figures/qr-api.png", width: 1.5em)) #big_text[CLI]],
       [#box(image("/assets/images/figures/qr-api.png", width: 1.5em)) #big_text[API]],
-      [#text(33pt)[```bash
+      [#text(23pt)[```bash
       $ modos show --zarr s3://bucket/ex data
       /
        └── data
@@ -142,7 +142,7 @@
 
       $ modos stream s3://bucket/ex/demo1.cram 
       ```]],
-      [#text(33pt)[```python
+      [#text(23pt)[```python
       >>> from modos.api import MODO
       >>> ex = MODO('s3://bucket/ex')
       >>> ex.list_samples()
@@ -172,7 +172,7 @@
     MODOS is open-source!
 
     We would love to have you try it out, and contributions are welcome.
-    #grid(columns: 2, gutter: 10mm,
+    #grid(columns: 2, gutter: 5mm,
         [- Repository:], [github.com/sdsc-ordes/modos-api],
         [- Documentation:], [sdsc-ordes.github.io/modos-api],
         [- Data model:], [sdsc-ordes.github.io/modos-schema]
@@ -192,10 +192,10 @@
   #big_text[= Notes]
   #zarr: a hierarchical format for the storage of chunked, compressed, N-dimensional arrays
 
-  #linkml: a general purpose modeling language that can be used with linked data, JSON, and other formalisms.
+  #linkml: a modeling language that can be used with linked data, JSON, and other formalisms.
 
   #box(
-    width: 10cm,
+    width: 4.5cm,
     image("/assets/images/logos/cc-by.svg"),
   ) This work is licensed under the #link("https://creativecommons.org/licenses/by/4.0")[Creative Commons Attribution 4.0 International License]
 ]
