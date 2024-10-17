@@ -5,6 +5,9 @@
 
 Poster presentation of modos (multi-omics digital object system).
 
+> [!TIP]
+> The compiled PDF is available from the [release page](https://github.com/sdsc-ordes/modos-poster/releases).
+
 ## Setup
 
 >[!NOTE]
