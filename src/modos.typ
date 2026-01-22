@@ -33,7 +33,7 @@
 
   // Add title, subtitle, author, affiliation, logos
   #poster-header(
-    title: big_text[MultiOmics Digital Objects (MODOS)],
+    title: big_text[Digital Objects (MODOS)],
     subtitle: big_text[One object to map them all],
     authors: [
       Cyril Matthey-Doret, Almut Lütge, Assaf Sternberg, Oksana Riba Grognuz
@@ -71,8 +71,8 @@
     [
     - FAIR queryable, linked metadata to facilitate further research
     - automatic metadata sync. across omics
-    - efficient compression
-    - remote (distributed) streaming access
+    - efficient compression and streaming
+    - remote secure (distributed) access
     - standardization],[
     #figure(image("/assets/images/figures/multiomics.svg", width: 60%),
     caption: [_Synchronizing multiomics data within one digital object_])]
@@ -90,10 +90,10 @@
   
   #normal-box()[
     #big_text[= MODOS Server]
-    - htsget server to stream genomics data
-    - S3 bucket for data storage
+    - htsget server to stream genomics data over network
+    - S3 bucket for data storage with short-lived credentials
     - modos-server exposing a REST api
-    - easy interactions via python API or CLI
+    - services protected by OIDC authentication
     #figure(image("/assets/images/figures/architecture_simple.svg", width: 80%))
     ]
 
