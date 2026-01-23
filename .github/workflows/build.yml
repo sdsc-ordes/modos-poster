@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     # NOTE: use nix container instead
     container:
-      image: ghcr.io/typst/typst:latest
+      image: ghcr.io/typst/typst:v0.11.1
 
     steps:
 
